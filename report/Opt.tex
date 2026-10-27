@@ -1,0 +1,34 @@
+\section{Вариант задания}
+\label{sec:Chapter4} \index{Chapter4}
+Индивидуальные варианты заданий отличаются комбинацией граничных условий.
+% Варианты приведены в следующей таблице (1Р -- условие первого рода, П -- периодическое условие) 1. 
+
+В текущей работе рассматривается вариант 5:
+\begin{itemize}
+    \item $
+        u_{analytical}
+        =
+        sin \left( \frac{2\pi}{L_x}x \right)
+        \cdot
+        sin \left( \frac{2\pi}{L_y}y \right)
+        \cdot
+        sin \left( \frac{2\pi}{L_z}z \right)
+        \cdot
+        cos \left( a_t \cdot t + 4\pi \right),
+        a_t
+        =
+        \pi \sqrt{
+            \dfrac{4}{L^2_x}
+            +
+            \dfrac{1}{L^2_y}
+            +
+            \dfrac{1}{L^2_z}
+        }
+    $,
+    \item \(x\) -- периодическое условие (\ref{equation:7}),
+    \item \(y\) -- условие первого рода (\ref{equation:5}),
+    \item \(z\) -- условие первого рода (\ref{equation:6}).
+\end{itemize}
+
+Функция \(u_{analytical}\) напрямую зависит от введенных \(L_x\), \(L_y\), \(L_z\), которые являются входными аргументами программы.
+Функция \(\varphi(x, y, z)\) зависит напрямую от \(u_{analytical}\) (\ref{equation:2}).

@@ -1,0 +1,51 @@
+\section{Математическая постановка дифференциальной задачи}
+\label{sec:Chapter1} \index{Chapter1}
+Рассматривается трёхмерная замкнутая область
+\[
+\Omega = [0 \leq x \leq L_x] \times [0 \leq y \leq L_y] \times [0 \leq z \leq L_z]
+\]
+для $(0 < t \leq T]$ требуется найти решение $u(x, y, z, t)$ уравнения в частных производных
+\begin{align}
+    \frac{\partial^2 u}{\partial t^2} = \Delta u \label{equation:1}
+\end{align} 
+с начальными условиями
+\begin{align}
+    \left.u\right|_{t=0} = \phi(x,y,z), \label{equation:2}\\
+    \left.\frac{\partial u}{\partial t}\right|_{t=0} = 0, \label{equation:3}
+\end{align} 
+при условии, что на границах области заданы однородные граничные условия первого рода
+\begin{align}
+    u(0, y, z, t) = 0,
+    \qquad
+    u(L_x, y, z, t) = 0,
+    \label{equation:4}
+    \\
+    u(x, 0, z, t) = 0,
+    \qquad
+    u(x, L_y, z, t) = 0,
+    \label{equation:5}
+    \\
+    u(x, y, 0, t) = 0,
+    \qquad
+    u(x, y, L_z, t) = 0,
+    \label{equation:6}
+\end{align}
+либо периодические граничные условия 
+\begin{align}
+    u(0, y, z, t) = u(L_x, y, z, t),
+    \qquad
+    u_x(0, y, z, t) = u_x(L_x, y, z, t),
+    \label{equation:7}
+    \\
+    u(x, 0, z, t) = u(x, L_y, z, t),
+    \qquad
+    u_y(x, 0, z, t) = u_y(x, L_y, z, t),
+    \label{equation:8}
+    \\
+    u(x, y, 0, t) = u(x, y, L_z, t),
+    \qquad
+    u_z(x, y, 0, t) = u_z(x, y, L_z, t).
+    \label{equation:9}
+\end{align}
+Конкретная комбинация граничных условий определяется индивидуальным вариантом задания (см. п. TODO) 
+% \ref{sec:Chapter5}
