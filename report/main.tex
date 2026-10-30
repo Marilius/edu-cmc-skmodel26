@@ -40,6 +40,7 @@
 
 \usepackage{enumitem}
 \usepackage{mathtools}
+\usepackage{makecell}
 
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
@@ -59,6 +60,9 @@
 % \usepackage[maxbibnames=99]{biblatex}
 \usepackage{diagbox}
 \usepackage[table]{xcolor}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 
 \usepackage{commath}
 \newcommand\Tau{\mathcal{T}}
@@ -127,8 +131,8 @@
 \include{Introduction} % Введение
 \include{Task} % Формальная постановка задачи
 \include{Method} %  Численный метод решения задачи 
-\include{Implementation} % Программная реализация
 \include{Opt} % Варианты задания
+\include{Implementation} % Программная реализация
 % \include{Algo} % Описание сведение к задачи ВКР части
 \include{Experiments} % Исследование масштабируемости
 \include{Conclusion} % Заключение

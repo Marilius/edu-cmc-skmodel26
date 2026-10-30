@@ -1,0 +1,60 @@
+Sender: LSF System <lsfadmin@polus-c3-ib.bmc.hpc.cs.msu.ru>
+Subject: Job 1608005: <# this file was automaticly created by mpisubmit.pl script for edu-cmc-skmodel26-621-01 #;source /polusfs/setenv/setup.SMPI;#BSUB -n 1;#BSUB -W 00:15;#BSUB -o results_out/openmp_L1_N256_T2.txt;#BSUB -e results_err/openmp_L1_N256_T2.txt.err;OMP_NUM_THREADS=2 mpiexec solver_openmp.out 256 20 1 1 1 0.01> in cluster <MSUCluster> Done
+
+Job <# this file was automaticly created by mpisubmit.pl script for edu-cmc-skmodel26-621-01 #;source /polusfs/setenv/setup.SMPI;#BSUB -n 1;#BSUB -W 00:15;#BSUB -o results_out/openmp_L1_N256_T2.txt;#BSUB -e results_err/openmp_L1_N256_T2.txt.err;OMP_NUM_THREADS=2 mpiexec solver_openmp.out 256 20 1 1 1 0.01> was submitted from host <polus-ib.bmc.hpc.cs.msu.ru> by user <edu-cmc-skmodel26-621-01> in cluster <MSUCluster> at Thu Oct 29 12:15:10 2026
+Job was executed on host(s) <polus-c3-ib.bmc.hpc.cs.msu.ru>, in queue <short>, as user <edu-cmc-skmodel26-621-01> in cluster <MSUCluster> at Thu Oct 29 12:17:11 2026
+</home_edu/edu-cmc-skmodel26-621/edu-cmc-skmodel26-621-01> was used as the home directory.
+</home_edu/edu-cmc-skmodel26-621/edu-cmc-skmodel26-621-01> was used as the working directory.
+Started at Thu Oct 29 12:17:11 2026
+Terminated at Thu Oct 29 12:18:01 2026
+Results reported at Thu Oct 29 12:18:01 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+# this file was automaticly created by mpisubmit.pl script for edu-cmc-skmodel26-621-01 #
+source /polusfs/setenv/setup.SMPI
+#BSUB -n 1
+#BSUB -W 00:15
+#BSUB -o results_out/openmp_L1_N256_T2.txt
+#BSUB -e results_err/openmp_L1_N256_T2.txt.err
+OMP_NUM_THREADS=2 mpiexec solver_openmp.out 256 20 1 1 1 0.01
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   95.27 sec.
+    Max Memory :                                 404 MB
+    Average Memory :                             359.22 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                11
+    Run time :                                   50 sec.
+    Turnaround time :                            171 sec.
+
+The output (if any) follows:
+
+OpenMP threads: 2
+Running task with params:
+gridSize = 256
+timeGridSize = 20
+Lx = 1
+Ly = 1
+Lz = 1
+T = 0.01
+Task took 48.758578746 s (~2.437928937 s per iteration)
+Avg error = 0.000792508
+Max error = 0.445180232
+Task finished successfully!
+
+
+PS:
+
+Read file <results_err/openmp_L1_N256_T2.txt.err> for stderr output of this job.
+

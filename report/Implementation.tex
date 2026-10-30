@@ -49,3 +49,23 @@
     \item Определяем максимальную погрешность на сетке между посчитанным и аналитическим решением.
     \item Переходим на следующий слой по времени и повторяем шаги 2--9.
 \end{enumerate}
+
+
+\lstset{
+backgroundcolor=\color{gray!10},
+frame=single,
+basicstyle=\ttfamily\small,
+breaklines=true,
+columns=fullflexible
+}
+Реализация данного алгоритма была написана на языке C++ и выложена на GitHub (https://github.com/Marilius/edu-cmc-skmodel26).
+Для компиляции и запуска использовались подобные команды (версия с OpenMP):
+\begin{lstlisting}[language=Bash, caption=Пример запуска с OpenMP]
+g++ -O2 -fopenmp -std=c++11 src/main.cpp -o solver.out
+mpisubmit.pl -t 8 solver.out --stdout std.out --stderr std.err \
+-- 128 20 1. 1. 1. 0.01
+\end{lstlisting}
+
+% TODO
+% Lx = Ly = Lz = 1, Lx =
+% Ly = Lz = 

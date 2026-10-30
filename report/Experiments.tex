@@ -1,3 +1,274 @@
 \section{Исследование масштабируемости}
-% \label{sec:Chapter1} \index{Chapter1}
-TODO
+\label{sec:Chapter5} \index{Chapter5}
+
+\subsection{Результаты расчетов для OpenMP программы}
+\begin{table}[ht]
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \makecell[c]{Число OpenMP-нитей\\ / послед. алгоритм} & Размер сетки & Время решения & Ускорение \\
+        \hline
+        serial & \(128^3\) & 12.38718873 & 1.0 \\
+        1 & \(128^3\) & 11.906204419 & 1.0403977870758243 \\
+        2 & \(128^3\) & 6.179221872 & 2.0046518779541245 \\
+        4 & \(128^3\) & 3.195486474 & 3.876464141152863 \\
+        8 & \(128^3\) & 2.020456917 & 6.1308848636043445 \\
+        \hline
+        serial & \(256^3\) & 98.77836788 & 1.0 \\
+        1 & \(256^3\) & 94.707646745 & 1.0429819689846207 \\
+        2 & \(256^3\) & 48.758578746 & 2.0258664304915466 \\
+        4 & \(256^3\) & 25.047241724 & 3.943682460865606 \\
+        8 & \(256^3\) & 15.251786104 & 6.476511485700285 \\
+        \hline
+        serial & \(512^3\) & 787.55294798 & 1.0 \\
+        1 & \(512^3\) & 754.75414806 & 1.043456269838735 \\
+        2 & \(512^3\) & 384.922989328 & 2.0460013296553496 \\
+        4 & \(512^3\) & 199.994196498 & 3.9378790073434744 \\
+        5 & \(512^3\) & 122.05060391 & 6.4526755521893255 \\
+        \hline
+    \end{tabular}
+    \caption{Время решения, \(L_x=L_y=L_z=1\)}
+    \label{tab1}
+\end{table}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=12cm,
+            height=8cm,
+            xlabel={Число OpenMP-нитей},
+            ylabel={Время выполнения, с},
+            legend pos=north east,
+            grid=major,
+            xtick={1,2,4,8}
+        ]
+        \addplot coordinates {
+            (1,11.906204419)
+            (2,6.179221872)
+            (4,3.195486474)
+            (8,2.020456917)
+        };
+        \addlegendentry{$128^3$}
+        \addplot coordinates {
+            (1,94.707646745)
+            (2,48.758578746)
+            (4,25.047241724)
+            (8,15.251786104)
+        };
+        \addlegendentry{$256^3$}
+        \addplot coordinates {
+            (1,754.75414806)
+            (2,384.922989328)
+            (4,199.994196498)
+            (8,122.05060391)
+        };
+        \addlegendentry{$512^3$}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{
+        Время выполнения OpenMP-реализации при различных размерах сетки
+        \newline
+        \centering\(L_x=L_y=L_z=1\)
+    }
+    \label{fig:tab1:time}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=12cm,
+            height=8cm,
+            xlabel={Число OpenMP-нитей},
+            ylabel={Ускорение},
+            legend pos=north west,
+            grid=major,
+            xtick={1,2,4,8}
+        ]
+        \addplot coordinates {
+            (1,1.0403977870758243)
+            (2,2.0046518779541245)
+            (4,3.876464141152863)
+            (8,6.1308848636043445)
+        };
+        \addlegendentry{$128^3$}
+        \addplot coordinates {
+            (1,1.0429819689846207)
+            (2,2.0258664304915466)
+            (4,3.943682460865606)
+            (8,6.476511485700285)
+        };
+        \addlegendentry{$256^3$}
+        \addplot coordinates {
+            (1,1.043456269838735)
+            (2,2.0460013296553496)
+            (4,3.9378790073434744)
+            (8,6.4526755521893255)
+        };
+        \addlegendentry{$512^3$}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{
+        Ускорение OpenMP-реализации при различных размерах сетки
+        \newline
+        \centering\(L_x=L_y=L_z=1\)
+    }
+    \label{fig:tab1:speedup}
+\end{figure}
+
+\noindent
+Последовательный и параллельный варианты программы были скомпилированы с флагом оптимизации -O2.
+При любом числе потоков получили проигрыш по сравнению с последовательным вариантом алгоритма.
+Компилятор GCC довольно хорошо оптимизирует последовательный код.
+
+\begin{table}[ht]
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \makecell[c]{Число OpenMP-нитей\\ / послед. алгоритм} & Размер сетки & Время решения & Ускорение \\
+        \hline
+        serial & \(128^3\) & 12.371096542 & 1.0 \\
+        1 & \(128^3\) & 12.418100815 & 0.9962148581574387 \\
+        2 & \(128^3\) & 8.258355857 & 1.4980096227645523 \\
+        4 & \(128^3\) & 4.719976269 & 2.6210082078698687 \\
+        8 & \(128^3\) & 2.868507856 & 4.312728834304437 \\
+        \hline
+        serial & \(256^3\) & 98.502743678 & 1.0 \\
+        1 & \(256^3\) & 98.622051571 & 0.998790251357587 \\
+        2 & \(256^3\) & 53.337296491 & 1.8467892105221553 \\
+        4 & \(256^3\) & 32.507485622 & 3.030155725465786 \\
+        8 & \(256^3\) & 15.746087913 & 6.255696286102655 \\
+        \hline
+        serial & \(512^3\) & 785.029544667 & 1.0 \\
+        1 & \(512^3\) & 753.413243477 & 1.0419640900445164 \\
+        2 & \(512^3\) & 399.393005665 & 1.9655565659190875 \\
+        4 & \(512^3\) & 227.560406705 & 3.4497633223370014 \\
+        5 & \(512^3\) & 139.734042225 & 5.618026446289616 \\
+        \hline
+    \end{tabular}
+    \caption{Время решения, \(L_x=L_y=L_z=\pi\)}
+    \label{tab2}
+\end{table}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=12cm,
+            height=8cm,
+            xlabel={Число OpenMP-нитей},
+            ylabel={Время выполнения, с},
+            legend pos=north east,
+            grid=major,
+            xtick={1,2,4,8}
+        ]
+        \addplot coordinates {
+            (1,12.418100815)
+            (2,8.258355857)
+            (4,4.719976269)
+            (8,2.868507856)
+        };
+        \addlegendentry{$128^3$}
+        \addplot coordinates {
+            (1,98.622051571)
+            (2,53.337296491)
+            (4,32.507485622)
+            (8,15.746087913)
+        };
+        \addlegendentry{$256^3$}
+        \addplot coordinates {
+            (1,753.413243477)
+            (2,399.393005665)
+            (4,227.560406705)
+            (8,139.734042225)
+        };
+        \addlegendentry{$512^3$}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{
+        Время выполнения OpenMP-реализации при различных размерах сетки
+        \newline
+        \centering\(L_x=L_y=L_z=\pi\)
+    }
+    \label{fig:tab2:time}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=12cm,
+            height=8cm,
+            xlabel={Число OpenMP-нитей},
+            ylabel={Ускорение},
+            legend pos=north west,
+            grid=major,
+            xtick={1,2,4,8}
+        ]
+        \addplot coordinates {
+            (1,0.9962148581574387)
+            (2,1.4980096227645523)
+            (4,2.6210082078698687)
+            (8,4.312728834304437)
+        };
+        \addlegendentry{$128^3$}
+        \addplot coordinates {
+            (1,0.998790251357587)
+            (2,1.8467892105221553)
+            (4,3.030155725465786)
+            (8,6.255696286102655)
+        };
+        \addlegendentry{$256^3$}
+        \addplot coordinates {
+            (1,1.0419640900445164)
+            (2,1.9655565659190875)
+            (4,3.4497633223370014)
+            (8,5.618026446289616)
+        };
+        \addlegendentry{$512^3$}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{
+        Ускорение OpenMP-реализации при различных размерах сетки
+        \newline
+        \centering\(L_x=L_y=L_z=\pi\)
+    }
+    \label{fig:tab2}
+\end{figure}
+
+
+
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=12cm,
+            height=7cm,
+            xlabel={Время},
+            ylabel={Ошибка},
+            grid=major,
+            legend pos=north west,
+            xmin=0,
+            xmax=1,
+            title={Максимальная абсолютная ошибка},
+        ]
+
+        \addplot table[
+            x expr=\coordindex*0.02,
+            y index=0
+        ] {../results/run_logs_L1/max_errors.txt};
+        \addlegendentry{\(L_x=L_y=L_z=1\)}
+
+        \addplot table[
+            x expr=\coordindex*0.02,
+            y index=0
+        ] {../results/run_logs_LPI/max_errors.txt};
+        \addlegendentry{\(L_x=L_y=L_z=\pi\)}
+
+        \end{axis}
+    \end{tikzpicture}
+    \caption{
+        Размер сетки = \(128^3\), 50 шагов по времени
+    }
+    \label{fig:error}
+\end{figure}

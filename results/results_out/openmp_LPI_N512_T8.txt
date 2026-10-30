@@ -1,0 +1,60 @@
+Sender: LSF System <lsfadmin@polus-c3-ib.bmc.hpc.cs.msu.ru>
+Subject: Job 1608023: <# this file was automaticly created by mpisubmit.pl script for edu-cmc-skmodel26-621-01 #;source /polusfs/setenv/setup.SMPI;#BSUB -n 1;#BSUB -W 00:15;#BSUB -o results_out/openmp_LPI_N512_T8.txt;#BSUB -e results_err/openmp_LPI_N512_T8.txt.err;OMP_NUM_THREADS=8 mpiexec solver_openmp.out 512 20 3.141592653589793 3.141592653589793 3.141592653589793 0.01> in cluster <MSUCluster> Done
+
+Job <# this file was automaticly created by mpisubmit.pl script for edu-cmc-skmodel26-621-01 #;source /polusfs/setenv/setup.SMPI;#BSUB -n 1;#BSUB -W 00:15;#BSUB -o results_out/openmp_LPI_N512_T8.txt;#BSUB -e results_err/openmp_LPI_N512_T8.txt.err;OMP_NUM_THREADS=8 mpiexec solver_openmp.out 512 20 3.141592653589793 3.141592653589793 3.141592653589793 0.01> was submitted from host <polus-ib.bmc.hpc.cs.msu.ru> by user <edu-cmc-skmodel26-621-01> in cluster <MSUCluster> at Thu Oct 29 12:15:11 2026
+Job was executed on host(s) <polus-c3-ib.bmc.hpc.cs.msu.ru>, in queue <short>, as user <edu-cmc-skmodel26-621-01> in cluster <MSUCluster> at Thu Oct 29 12:31:20 2026
+</home_edu/edu-cmc-skmodel26-621/edu-cmc-skmodel26-621-01> was used as the home directory.
+</home_edu/edu-cmc-skmodel26-621/edu-cmc-skmodel26-621-01> was used as the working directory.
+Started at Thu Oct 29 12:31:20 2026
+Terminated at Thu Oct 29 12:33:40 2026
+Results reported at Thu Oct 29 12:33:40 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+# this file was automaticly created by mpisubmit.pl script for edu-cmc-skmodel26-621-01 #
+source /polusfs/setenv/setup.SMPI
+#BSUB -n 1
+#BSUB -W 00:15
+#BSUB -o results_out/openmp_LPI_N512_T8.txt
+#BSUB -e results_err/openmp_LPI_N512_T8.txt.err
+OMP_NUM_THREADS=8 mpiexec solver_openmp.out 512 20 3.141592653589793 3.141592653589793 3.141592653589793 0.01
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   985.60 sec.
+    Max Memory :                                 3091 MB
+    Average Memory :                             2867.27 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                17
+    Run time :                                   140 sec.
+    Turnaround time :                            1109 sec.
+
+The output (if any) follows:
+
+OpenMP threads: 8
+Running task with params:
+gridSize = 512
+timeGridSize = 20
+Lx = 3.14159
+Ly = 3.14159
+Lz = 3.14159
+T = 0.01
+Task took 139.734042225 s (~6.986702111 s per iteration)
+Avg error = 0.000190318
+Max error = 0.228837553
+Task finished successfully!
+
+
+PS:
+
+Read file <results_err/openmp_LPI_N512_T8.txt.err> for stderr output of this job.
+

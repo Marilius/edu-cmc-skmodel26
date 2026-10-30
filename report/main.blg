@@ -4,8 +4,8 @@ The top-level auxiliary file: main.aux
 A level-1 auxiliary file: Introduction.aux
 A level-1 auxiliary file: Task.aux
 A level-1 auxiliary file: Method.aux
-A level-1 auxiliary file: Implementation.aux
 A level-1 auxiliary file: Opt.aux
+A level-1 auxiliary file: Implementation.aux
 A level-1 auxiliary file: Experiments.aux
 A level-1 auxiliary file: Conclusion.aux
 The style file: gost71u.bst
